@@ -2,7 +2,7 @@ print("Sistema de gestão de prioridade")
 
 print("1.Capitar Problema")
 print("2.Consultar Problema")
-print("3.media de chmados")
+print("3.media de chamados")
 print("4. Mostar todos os chamados de problema")
 print("5.Sair")
 
@@ -13,7 +13,7 @@ match opc :
     case "1":
         identificadorChamado = input("Digite o nome de chamado: ")
         DBdesafio[identificadorChamado] = {
-            "sistema_servico": input("Digite o nome do sistema afetado ou o nome do serviço afetado: "),
+            "sistema_servico": input("Digite se e sistema ou serviço: "),
             "nivel_problema": int(input("Digite o nível do problema de 1 a 3: ")),
             "horas_abertas": float(input("Digite a quantidade de horas em aberto: ")),
             "usuarios_afetados": int(input("Digite o número de usuários afetados: ")),
@@ -37,6 +37,16 @@ match opc :
             print(f"• Horas em Aberto: {dados['horas_abertas']}h")
             print(f"• Usuários Afetados: {dados['usuarios_afetados']}")
             print(f"• Ambiente: {dados['ambiente_problema']}")
+
+            if dados['nivel_problema'] >=3 and dados['sistema_servico'] == "producao":
+                print("Critico")
+            elif dados['nivel_problema'] >=3 and dados['usuarios_afetados']==100:
+                print("Alta")
+            elif dados['nivel_problema'] >=2 or dados['horas_abertas'] > 4.0:
+                print("media")
+            else:
+                print("Baixa")
+
         else:
             print(f"\nO chamado '{busca}' não existe na base de dados.")
 
