@@ -13,6 +13,10 @@ try:
 
     print("\n--- Teste 2: Disciplina inexistente ---")
     verAluno(aluno, "Fisica")
+
+    print("\n--- Teste 3: Aluno = None ---")
+    verAluno(None, "Python")
+
 except KeyError as e:
     print(f"Erro de chave: A estrutura não contém a secção 'notas' ou a disciplina {e} é inexistente.")
 
