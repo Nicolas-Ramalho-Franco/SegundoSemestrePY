@@ -1,4 +1,3 @@
-from _pyrepl import keymap
 
 aluno={
     "nome":"Lia",
